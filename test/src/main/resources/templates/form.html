@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>글 작성</title>
+<link rel="stylesheet" th:href="@{/css/base.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<!-- Web Fonts -->
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700'
+	rel='stylesheet' type='text/css'>
+<!-- Bootstrap core CSS -->
+<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	media="screen">
+<!-- Font Awesome CSS -->
+<link href="assets/css/font-awesome.min.css" rel="stylesheet"
+	media="screen">
+<!-- Animate css -->
+<link href="assets/css/animate.css" rel="stylesheet">
+<!-- Magnific css -->
+<link href="assets/css/magnific-popup.css" rel="stylesheet">
+<!-- Custom styles CSS -->
+<link href="assets/css/style.css" rel="stylesheet" media="screen">
+<!-- Responsive CSS -->
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+
+</head>
+<body>
+	<!-- Navigation -->
+	<header class="header">
+		<nav class="navbar navbar-custom" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/"><img
+						src="assets/images/lo.PNG" width="98px" height="30px"></a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="custom-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/">Home</a></li>
+						<li><a href="http://localhost:7000#about">About</a></li>					
+						<li><a href="http://localhost:7000#blog">Poster</a></li>
+						<li><a href="http://localhost:7000#contact">Location</a></li>
+						<li><a href="/logout" sec:authorize="isAuthenticated()">logout</a></li>
+						<li><a href="/loginForm" sec:authorize="isAnonymous()">login</a></li>
+            			<li><a href="http://localhost:7000#video">video</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- .container -->
+		</nav>
+	</header>
+	<!-- End Navigation -->
+	<div th:hidden="${user}"></div>
+	<p>[[${user.username}]]</p>
+	<div class="container">
+		<div class="page-header">
+			<h1>글 작성</h1>
+		</div>
+		<br /> <input id="fair_id" type="hidden" th:value="${fair?.id}" />
+		<form id="form" name="form" method="post"
+			enctype="multipart/form-data">
+			<table class="table">
+				<tr>
+					<th style="padding: 13px 0 0 15px">타입</th>
+					<td>
+						<div class="pull-left">
+							<select class="form-control input-sm" name="fairType"
+								id="fairType">
+								<option>--분류--</option>
+								<option th:value="Fair"
+									th:selected="${fair?.fairType?.name() == 'Fair'}">박람회</option>
+								<option th:value="Festivals"
+									th:selected="${fair?.fairType?.name() == 'Festivals'}">축제</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th style="padding: 13px 0 0 15px;">제목</th>
+					<td><input type="text" name="fname" id="fname"
+						class="col-md-1 form-control input-sm" th:value="${fair?.fname}" /></td>
+				</tr>
+				<tr>
+					<th style="padding: 13px 0 0 15px;">시작 날짜</th>
+					<td><input type="date" name="sdatee" id="sdatee"
+						class="col-md-1 form-control input-sm" th:value="${fair?.sdate}" /></td>
+				</tr>
+				<tr>
+					<th style="padding: 13px 0 0 15px;">종료 날짜</th>
+					<td><input type="date" name="edatee" id="edatee"
+						class="col-md-1 form-control input-sm" th:value="${fair?.edate}"></td>
+				</tr>
+				<tr>
+					<th style="padding: 13px 0 0 15px;">장소</th>
+					<td><input type="text" name="location" id="location"
+						class="col-md-1 form-control input-sm"
+						th:value="${fair?.location}" /></td>
+				</tr>
+				<tr>
+					<th style="padding: 13px 0 0 15px;">내용</th>
+					<td><textarea id="info" name="info"
+							class="col-md-1 form-control input-sm" maxlength="500" rows="7"
+							style="height: 200px;" th:text="${fair?.info}"></textarea><span
+						class="help-block"></span>
+						<div id="test_cnt">(0/500)</div></td>
+
+				</tr>
+				<tr>
+					<th style="padding: 13px 0 0 15px;">사진</th>
+					<td><input type="file" name="filek" id="filek"
+						th:value="${fair?.fimg}" multiple="multiple" /> <!-- <input type="file" name="file" id="fimg" /> --></td>
+
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</form>
+		<div class="pull-left">
+			<a href="/" class="btn btn-info">홈으로</a>
+		</div>
+		<div class="pull-right">
+			<button th:if="!${fair?.id}" type="button"
+				class="btn btn-primary" id="insert">저장</button>
+			<button th:if="${fair?.id}" type="button" class="btn btn-info"
+				id="update">수정</button>
+			<button th:if="${fair?.id}" type="button"
+				class="btn btn-danger" id="delete">삭제</button>
+		</div>
+	</div>
+
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"
+		integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+		crossorigin="anonymous"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+	window.onload = function(){
+	    document.getElementById("location").addEventListener("click", function(){ //주소입력칸을 클릭하면
+	        //카카오 지도 발생
+	        new daum.Postcode({
+	            oncomplete: function(data) { //선택시 입력값 세팅
+	                document.getElementById("location").value = data.address; // 주소 넣기
+	            }
+	        }).open();
+	    });
+	}
+	</script>
+
+	<!-- 글자 수 표시하는 부분 -->
+	<script>
+    $(document).ready(function() {
+        $('#info').on('keyup', function() {
+            $('#test_cnt').html("("+$(this).val().length+" / 500)");
+ 
+            if($(this).val().length > 500) {
+                $(this).val($(this).val().substring(0, 500));
+                $('#test_cnt').html("(500 / 500)");
+            }
+        });
+    });
+    </script>
+	<script>
+$(document).ready(function () {
+	$('#insert').click(function (event) {
+        event.preventDefault();
+        
+        var form = $('#form')[0];
+        var formData = new FormData(form);
+        $('#insert').prop('disabled', true);
+        for(let key of formData.keys()){
+			console.log(key);
+		}
+		
+		for(let value of formData.values()){
+			console.log(value);
+		}
+
+        $.ajax({
+            type: 'POST',
+            enctype: 'multipart/form-data',
+            url: '/insert',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                //$('#result').text(data);
+                console.log('SUCCESS : ', data);
+                $('#insert').prop('disabled', false);
+                $('#fimg').val("");
+                location.href = '/';
+            },
+            error: function (e) {
+                //$('#result').text(e.responseText);
+                console.log('ERROR : ', e);
+                $('#insert').prop('disabled', false);
+                alert("fail")
+            }
+        });
+
+    });
+});
+</script>
+	<script th:if="${user?.username}">
+	$('#update').click(function (event) {
+        event.preventDefault();
+        
+        var form = $('#form')[0];
+        var formData = new FormData(form);
+        $('#update').prop('disabled', true);
+        for(let key of formData.keys()){
+			console.log(key);
+		}
+		
+		for(let value of formData.values()){
+			console.log(value);
+		}
+
+        $.ajax({
+            type: 'PUT',
+            enctype: 'multipart/form-data',
+            url: 'http://localhost:7000/update/' + $('#fair_id').val(),
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                //$('#result').text(data);
+                console.log('SUCCESS : ', data);
+                $('#update').prop('disabled', false);
+                $('#fimg').val("");
+                location.href = '/';
+            },
+            error: function (e) {
+                //$('#result').text(e.responseText);
+                console.log('ERROR : ', e);
+                $('#update').prop('disabled', false);
+                alert("fail")
+            }
+        });
+
+    });
+        $('#delete').click(function () {
+            $.ajax({
+                       url: "http://localhost:7000/delete/" + $('#fair_id').val(),
+                       type: "DELETE",
+                       success: function () {
+                           alert('삭제 성공!');
+                           location.href = '/';
+                       },
+                       error: function () {
+                           alert('삭제 실패!');
+                       }
+                   });
+        });
+    </script>
+</body>
+</html>
+<!--     <script th:if="!${fair?.fname}">
+        $('#insert').click(function () {
+            var jsonData = JSON.stringify({
+            	/*JSON.stringify()는 자바스크립트 오브젝트{}를 
+				제이슨형태로 변환해주는 메소드이다.*/
+                fname: $('#fname').val(),
+                sdate: $('#sdate').val(),
+                edate: $('#edate').val(),
+                location: $('#location').val(),
+                info: $('#info').val(),
+                fairType: $('#fair_type option:selected').val(),
+                fimgg: $('#fimg').val()
+            });           
+            
+           // alert(jsonData);//확인하려고 알림창 찍은거
+            $.ajax({
+            	
+                       url: "http://localhost:7000/insert",
+                       type: "POST",
+                       data: jsonData,//컨트롤러에 보내는 요청타입도 제이슨
+                       contentType: "application/json",
+                       headers: {
+                           "Authorization": "Basic " + btoa("havi" + ":" + "test")
+                       },//여기까지 값을 날려서 컨트롤러에서 응답을 보내줌
+                       dataType: "json",//컨트롤러의 응답형태 제이슨
+                           success: function () {
+                               alert('저장 성공!');
+                               alert(jsonData);
+                               location.href = '/';
+                               //아직 리스트없으므로 에러, 이제 만들어주기
+                       },
+                       error: function () {
+                           alert('저장 실패!');
+                       }
+                   });
+        });
+    </script> -->

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>글 작성</title>
+    <link rel="stylesheet" th:href="@{/css/base.css}" />
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+      <!-- Web Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+	<!-- Bootstrap core CSS -->
+	<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<!-- Font Awesome CSS -->
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen">
+	<!-- Animate css -->
+  <link href="assets/css/animate.css" rel="stylesheet">
+  <!-- Magnific css -->
+	<link href="assets/css/magnific-popup.css" rel="stylesheet">
+	<!-- Custom styles CSS -->
+	<link href="assets/css/style.css" rel="stylesheet" media="screen">
+  <!-- Responsive CSS -->
+  <link href="assets/css/responsive.css" rel="stylesheet">
+    
+    
+</head>
+<body>
+	<!-- Navigation -->
+	<header class="header">
+		<nav class="navbar navbar-custom" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/"><img src="assets/images/lo.PNG" width="98px" height="30px"></a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="custom-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/">Home</a></li>
+						<li><a href="http://localhost:7000#about">About</a></li>					
+						<li><a href="http://localhost:7000#blog">Poster</a></li>
+						<li><a href="http://localhost:7000#contact">Location</a></li>
+						<li><a href="/logout" sec:authorize="isAuthenticated()">logout</a></li>
+						<li><a href="/loginForm" sec:authorize="isAnonymous()">login</a></li>
+            			<li><a href="http://localhost:7000#video">video</a></li>
+					</ul>
+				</div>
+			</div><!-- .container -->
+		</nav>
+	</header><!-- End Navigation -->
+
+	<div class="container">
+        <div class="page-header">
+            <h1>[[${fair?.fname}]]</h1>
+        </div>
+        <br/>
+        <input id="fair_idx" type="hidden" th:value="${fair?.id}"/><table class="table">
+            <tr>
+                <th style="padding:13px 0 0 15px">타입</th>
+                <td>
+                    <div class="pull-left">
+                        <span>[[${fair?.fairType}]]</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">날짜</th>
+                <td><span>[[${#dates.format(fair?.sdate, 'yyyy-MM-dd')} ]] ~
+                    [[${#dates.format(fair?.edate, 'yyyy-MM-dd')}]]</span></td>
+
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">작성자</th>
+                <td> <span>[[${fair?.uname?.username}]]</span></td>
+
+            </tr>
+            
+            <tr>
+                <th style="padding:13px 0 0 15px;">포스터</th>
+                <td><img th:src="@{../image/}+${fair.fimg}" width="600" height="820"></td>
+            </tr>
+            <tr>
+                <th style="padding:13px 0 0 15px;">정보</th>
+                <td> <span>[[${fair?.info}]]</span></td>
+            </tr>
+           
+        </table>
+        <div class="pull-left">
+            <a href="/" class="btn btn-info">목록으로</a>
+        </div>
+
+        <div class="pull-right">
+            <button th:if="${fair?.uname?.username==user?.username}"
+             class="btn btn-info" type="button" id="ud" >수정 및 삭제</button>
+        </div>
+    </div>
+
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script th:if="${fair?.uname?.username}">
+		$( document ).ready(function() {
+			$('#ud').click(function () {				
+	        	var data=$('#fair_idx').val();	   
+	        	location.href="http://localhost:7000/ud?id="+data;
+	        })
+		}); 
+</script> 
+
+
+</body>
+</html>

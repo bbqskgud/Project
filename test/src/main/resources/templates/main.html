@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+	content="IAMX, One Page Responsive HTML Resume Template">
+<meta name="keywords"
+	content="onepage, resume, CV HTML template, personal Vcard, html resume, free resume template, free HTML template, free bootstrap template, personal portfolio, free html portfolio">
+<meta name="author" content="http://trendytheme.net/">
+
+<title>박람회 축제</title>
+
+<!-- Web Fonts -->
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,300,500,700'
+	rel='stylesheet' type='text/css'>
+<!-- Bootstrap core CSS -->
+<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"
+	media="screen">
+<!-- Font Awesome CSS -->
+<link href="assets/css/font-awesome.min.css" rel="stylesheet"
+	media="screen">
+<!-- Animate css -->
+<link href="assets/css/animate.css" rel="stylesheet">
+<!-- Magnific css -->
+<link href="assets/css/magnific-popup.css" rel="stylesheet">
+<!-- Custom styles CSS -->
+<link href="assets/css/style.css" rel="stylesheet" media="screen">
+<!-- Responsive CSS -->
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+<link rel="shortcut icon" href="assets/images/ico/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="assets/images/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="assets/images/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="assets/images/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="assets/images/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body>
+
+	<!-- Preloader -->
+	<div id="tt-preloader">
+		<div id="pre-status">
+			<div class="preload-placeholder"></div>
+		</div>
+	</div>
+
+	<!-- Home Section -->
+	<section id="home" class="tt-fullHeight"
+		data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
+		<div class="intro">
+			<div class="intro-sub">Go Together</div>
+			<h1>
+				FAIR & <span>FESTIVALS</span>
+			</h1>
+			<p>
+				'모두 함께가자'는 의미로도 사용하고, '잘 어울린다' 라는 의미로도 사용되는 <br>'Go Together'를 저의
+				슬로건으로 설정하였습니다.
+			</p>
+
+		</div>
+
+		<div class="mouse-icon">
+			<div class="wheel"></div>
+		</div>
+	</section>
+	<!-- End Home Section -->
+
+
+
+
+	<!-- Navigation -->
+	<header class="header">
+		<nav class="navbar navbar-custom" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span> <span
+							class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/"><img
+						src="assets/images/lo.PNG" width="98px" height="30px"></a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="custom-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#blog">Poster</a></li>
+						<li><a href="#contact">Location</a></li>
+						<li><a href="/logout" sec:authorize="isAuthenticated()">logout</a></li>
+						<li><a href="/loginForm" sec:authorize="isAnonymous()">login</a></li>
+						<li><a href="#video">video</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- .container -->
+		</nav>
+	</header>
+	<!-- End Navigation -->
+
+
+	<!-- About Section -->
+	<section id="about" class="about-section section-padding">
+		<div class="container">
+			<h2 class="section-title wow fadeInUp">About</h2>
+
+			<div class="row">
+
+				<div class="col-md-4 col-md-push-8">
+					<div class="biography">
+						<div >
+							<img src="assets/images/fe3.jpg" alt="">
+						</div>
+						<ul>
+							<li><strong>Name:</strong> Go Together</li>
+							<li><strong>Date of birth:</strong> 03 Oct 2022</li>
+							<li><strong>Address:</strong> 46-1, Seodaegu-ro 2-gil, Seo-gu, Daegu, Republic of Korea</li>
+							<li><strong>Nationality:</strong> Korean</li>
+							<li><strong>Phone:</strong> (010) 6627 8426</li>
+							<li><strong>Email:</strong> bbqskgud@naver.com</li>
+						</ul>
+					</div>
+				</div>
+				<!-- col-md-4 -->
+
+				<div class="col-md-8 col-md-pull-4">
+					<div class="short-info wow fadeInUp">
+						<h3>'Go together'를 제작한 이유</h3>
+						<p>박람회 또는 축제를 가기 위해서는 언제 열리는지 알아야 갈 수 있는데, 현재 그 정보들을 
+						담고있는 홈페이지가 부족해서 'Go together'를 제작하게 되었습니다.<br>
+						함께 가자는 의미로 많이 쓰이는 'Go together'에 '어울린다'라는 의미도 있었기때문에
+						어울리면서 함께 박람회나 축제에 가보자는 의미에서 저의 홈페이지의 이름을 'Go together'로
+						정하게 되었습니다.</p>
+					</div>
+
+					<div class="short-info wow fadeInUp">
+						<h3>사용법</h3>
+						<p>회원이 아닐경우에는 다른 유저들이 입력한 축제나 박람회의 정보 및 위치들을 확인 할 수 있습니다.
+						<br>만약 박람회 및 축제를 등록하고 싶으시면, 회원가입을 한뒤 포스터들이 있는 위치에 등록을
+						할 수 있습니다. 등록을 하게되면 포스터들이 있는 곳에 가장 먼저 표출되게 되며, 밑에 지도에서도
+						위치정보가 입력된 것을 확인 할 수있습니다.
+						</p>
+
+						<ul class="list-check">
+							<li>회원가입을 통한 글 입력</li>
+							<li>poster에서 박람회, 축제 확인하기</li>
+							<li>사진을 눌러서 정보 확인하기</li>
+							<li>Location에서 위치 확인하기</li>
+							<li>지도에 나타난 마커 확인하기</li>
+							
+						</ul>
+					</div>
+
+					<div class="my-signature">
+						<img src="assets/images/lo.PNG" width="110" height="67">
+					</div>
+				</div>
+
+
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+	<!-- End About Section -->
+
+	<!-- Blog Section -->
+	<section id="blog" class="latest-blog-section section-padding">
+		<div class="container">
+			<h2 class="section-title wow fadeInUp">박람회 및 축제</h2>
+			<div class="blog-more text-center" th:if="${username?.username}">
+				<a href="/form" class="btn btn-primary">등록</a>
+			</div>
+			<div class="row">
+				<div class="col-sm-4" th:each="fair:${fairList}">
+					<article class="blog-post-wrapper">
+						<div class="figure">
+							<div class="post-thumbnail">
+								<a th:href="'/view?id='+${fair.id}"><img
+									th:src="@{../image/}+${fair.fimg}" class="img-responsive "
+									alt=""></a>
+							</div>
+
+						</div>
+						<!-- /.figure -->
+						<header class="entry-header">
+							<div class="post-meta">
+								<span class="the-category">
+									<p>[[${fair?.fairType}]]</p>
+
+								</span>
+							</div>
+							<h2 class="entry-title">
+								<a href="#" rel="">[[${fair?.fname}]]</a>
+							</h2>
+							<hr>
+							<div class="entry-meta">
+								<ul class="list-inline">
+									<li><span class="the-author"> <span>[[${fair?.uname?.username}]]</span>
+									</span></li>
+									<li><span class="the-time"> <span>[[${#dates.format(fair?.sdate,
+												'yyyy-MM-dd')} ]] ~ [[${#dates.format(fair?.edate,
+												'yyyy-MM-dd')}]]</span>
+									</span></li>
+								</ul>
+							</div>
+							<!-- .entry-meta -->
+						</header>
+						<!-- .entry-header -->
+					</article>
+				</div>
+				<!-- /.row -->
+
+
+			</div>
+			<!-- /.container -->
+	</section>
+	<!-- End Blog Section -->
+
+
+	<!-- Contact Section -->
+	<section id="contact" class="contact-section section-padding">
+		<div class="container">
+			<h2 class="section-title wow fadeInUp">지도로 보기</h2>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="contact-form" >
+						<strong >박람회 및 축제</strong>
+						<form name="contact-form" id="contactForm" >
+							<div style="float: left;">
+								<div th:each="fair:${fairList}">
+									<h2 class="text-uppercase" style="font-size: 22px;">
+									<i class="fa fa-map-marker"></i>
+										<span  class="branchAtag" style="color: #68C3A3">[[${fair.fname}]]</span>
+									</h2>
+									<span>[[${fair?.location}]]</span><br>
+									<span class="the-time"> <span>[[${#dates.format(fair?.sdate,
+												'yyyy-MM-dd')} ]] ~ [[${#dates.format(fair?.edate,
+												'yyyy-MM-dd')}]]</span>
+									</span>
+								</div>								
+							</div>
+						</form>
+					</div>
+					<!-- /.contact-form -->
+				</div>
+				<!-- /.col-md-6 -->
+
+				<div class="col-md-6">
+					<div class="row center-xs">
+						<div class="col-sm-6">
+							<i class="fa fa-map-marker"></i>
+							<address>
+								<strong>위치</strong> 유저들이 입력한 박람회 및 축제의 위치가 지도에 표시됩니다.
+							</address>
+						</div>
+
+						<div class="col-sm-6">
+							<i class="fa fa-mobile"></i>
+							<div class="contact-number">
+								<strong>전화번호</strong> (문의) 010 - 6627 - 8426<br>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-sm-12" id="">
+							<div class="location-map">
+								<div id="map" class="map-canvas"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.container -->
+	</section>
+	<!-- End Contact Section -->
+
+	<div id="map" style="width: 545px; height: 350px;"></div>
+
+	<!-- Video Section -->
+	<h2 class="section-title wow fadeInUp">영상 홍보</h2>
+	<section id="video" class="video-section">
+	
+		<div class="tf-bg-overlay">
+
+			<div class="container">
+			
+				<div class="video-intro">
+					<a class="popup-video"
+						href="https://www.youtube.com/watch?v=CW17sZn7e44"> <i
+						class="fa fa-play"></i>
+					</a>
+					<h2>축제</h2>
+
+				</div>
+
+			</div>
+
+			<!--/.container-->
+		</div>
+		<!--/.overlay-->
+	</section>
+	<!-- /.Video Section -->
+
+<div>
+<br><br><br><br><br>
+</div>
+
+	<!-- Footer Section -->
+	<footer class="footer-wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="copyright text-center">
+						made by <span style="color: #68C3A3">Kim Nahyeong</span>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Section -->
+
+
+	<!-- Scroll-up -->
+	<div class="scroll-up">
+		<a href="#home"><i class="fa fa-angle-up"></i></a>
+	</div>
+
+	<!-- Javascript files -->
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.stellar.min.js"></script>
+	<script src="assets/js/jquery.sticky.js"></script>
+	<script src="assets/js/smoothscroll.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/jquery.countTo.js"></script>
+	<script src="assets/js/jquery.inview.min.js"></script>
+	<script src="assets/js/jquery.easypiechart.js"></script>
+	<script src="assets/js/jquery.shuffle.min.js"></script>
+	<script src="assets/js/jquery.magnific-popup.min.js"></script>
+	<script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>
+	<script src="assets/js/jquery.fitvids.js"></script>
+
+	<script src="assets/js/scripts.js"></script>
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=55b269084404ae8f9c7cfdf7d0bb4f5e&libraries=services"></script>
+	<script th:inline="javascript" th:each="fair:${fairList}">
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		mapOption = {
+			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			level : 6
+		// 지도의 확대 레벨
+		};
+
+		// 지도를 생성합니다    
+		var map = new kakao.maps.Map(mapContainer, mapOption);
+
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+
+		// 주소로 좌표를 검색합니다
+		geocoder
+				.addressSearch(
+						'[[${fair.location}]]',
+						function(result, status) {
+
+							// 정상적으로 검색이 완료됐으면 
+							if (status === kakao.maps.services.Status.OK) {
+
+								var coords = new kakao.maps.LatLng(result[0].y,
+										result[0].x);
+
+								// 결과값으로 받은 위치를 마커로 표시합니다
+								var marker = new kakao.maps.Marker({
+									map : map,
+									position : coords
+								});
+
+								// 인포윈도우로 장소에 대한 설명을 표시합니다
+								var infowindow = new kakao.maps.InfoWindow(
+										{
+											content : '<div style="width:150px;text-align:center;padding:6px 0;">[[${fair.fname}]]</div>'
+										});
+								infowindow.open(map, marker);
+
+								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+								map.setCenter(coords);
+							}
+						});
+	</script>
+</body>
+</html>
