@@ -6,3 +6,7 @@
 ----------------
 개발환경
 ![image](https://user-images.githubusercontent.com/108060059/194196567-ac5f7644-83fc-4151-831e-0b79bff52397.png)
+
+----------------
+기능 - 화면구성
+
